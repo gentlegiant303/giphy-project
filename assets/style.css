@@ -1,7 +1,9 @@
 .topic {
   margin: 10px;
+  text-transform: capitalize;
 }
 
 .container {
   margin-left: 10px;
+  margin-top: 20px;
 }

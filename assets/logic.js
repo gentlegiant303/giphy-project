@@ -28,7 +28,7 @@ function getGifs() {
       for (var i = 0; i < results.length; i++) {
         var newDiv = $("<div>");
         images.push(results)
-        var p = $("<p>").text("Rating: " + results[i].rating);
+        var p = $("<p>").html("<strong>Rating: </strong>" + results[i].rating);
         var image = $("<img>");
         image.attr("src", results[i].images.fixed_height_still.url).addClass('picture').attr("moving", results[i].images.fixed_height.url).attr("motion", false)
         newDiv.append(p);
