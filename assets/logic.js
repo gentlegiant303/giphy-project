@@ -24,17 +24,17 @@ function getGifs() {
       url: queryURL,
       method: "GET"
     }).done(function(response) {
+      console.log(response);
       let results = response.data
       for (var i = 0; i < results.length; i++) {
-        var newDiv = $("<div>");
-        images.push(results)
-        var p = $("<p>").html("<strong>Rating: </strong>" + results[i].rating);
-        var image = $("<img>");
-        image.attr("src", results[i].images.fixed_height_still.url).addClass('picture').attr("moving", results[i].images.fixed_height.url).attr("motion", false)
-        newDiv.append(p);
-        newDiv.append(image)
-        $("#gifs").prepend(newDiv);
-
+        images.push(results);
+        $("#gifs").prepend(`
+          <div>
+            <p>
+              <strong>Rating: </strong> ${results[i].rating}
+              </p>
+              <img src=${results[i].images.fixed_height_still.url} class="picture" moving=${results[i].images.fixed_height.url} motion="false" />
+              `);
       }
     });
     animate(images);
